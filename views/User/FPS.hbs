@@ -81,22 +81,8 @@
   border-color: #007BFF; /* Change the border color on focus */
   width: 200px; /* Expand the input field width */
 }
-
-/* Style for the search icon button */
-.attr-nav .search button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
  .navbar-nav .dropdown .nav-link.active {
     color: #b0b435!important; 
-}
-
-
-/* Style for the search icon */
-.attr-nav .search i.fa-search {
-  font-size: 24px;
-  color: #333;
 }
 
 /* Style for the badge */
@@ -217,7 +203,7 @@
                 </div>
                     <div class="login-box">
                  {{#if ifAuthenticated}}
-                    <a href="/logout" class="btn btn-primary" style="float:right">SignOut</a>
+                    <a href="/logout" class="btn btn-primary">SignOut</a>
                           {{else}}
                               <div class="login-box">
                                   <div class="dropdown">
@@ -293,6 +279,7 @@
                 <!-- Start Atribute Navigation -->
                 <div class="attr-nav">
                 <ul>
+                    <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
                     <li class="side-menu">
                         <a href="/cart">
                             <i class="fa fa-shopping-bag"></i>

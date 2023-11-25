@@ -167,6 +167,25 @@
         .btn-primary:hover {
             background-color: #0056b3;
         }
+         button.delete-button {
+        background-color: #ff4136; /* Red background color */
+        color: #fff; /* White text color */
+        border: none; /* No border */
+        padding: 8px 12px; /* Padding to adjust button size */
+        cursor: pointer; /* Cursor style on hover */
+        border-radius: 4px; /* Rounded corners */
+        font-weight: bold; /* Bold text */
+      }
+
+      /* Hover effect for the button */
+      button.delete-button:hover {
+        background-color: #d21f1f; /* Darker red on hover */
+      }
+
+      /* Optional: Add margin to the button for spacing */
+      button.delete-button {
+        margin: 4px;
+      }
     </style>
   </style>
   
@@ -343,8 +362,31 @@
         </div>
     </div>
 </div>
-
-
+<div class="card mt-4">
+    <div class="card-body">
+        <h2 class="card-title">Uploaded Images</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Image</th>
+                    <th>Available On</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="imageTable">
+                {{#each UPG}}
+                <tr data-upg-id="{{this._id}}">
+                    <td>{{this.name}}</td>
+                    <td><img src="/Pictures/Home_Buy/{{this.image}}" style="width: 14pc;"></td>
+                    <td>{{this.validity}}</td>
+                    <td><button class="delete-button" onclick="UPGdel('{{this._id}}')">Delete</button></td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </div>
+</div>
 
     <!-- Include your Handlebars.js helper function to format dates if needed -->
 
@@ -427,7 +469,31 @@
 
   })
 </script>
+<script>
+  function UPGdel(UPGId) {
+  fetch(`/admin/deleteUPG/${UPGId}`, {
+    method: "POST",
+  })
+    .then(response => {
+      if (response.status === 200) {
+        alert("Item deleted successfully");
 
+        const rowToDelete = document.querySelector(`tr[data-upg-id="${UPGId}"]`);
+        if (rowToDelete) {
+          rowToDelete.remove();
+        }
+      } else {
+        console.log("Can't delete");
+        alert("Item not deleted successfully");
+      }
+    })
+    .catch(error => {
+      console.log(error.message);
+      alert("Internal server error");
+    });
+}
+
+</script>
 
 </body>
 

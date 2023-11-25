@@ -96,10 +96,11 @@ const verifySignin = async (req, res) => {
     const ph = await User.findOne({ number: number });
     const Referral = req.body.Referral
     
-    const refferals = await User.findOne({Referral_Code:Referral})
-    if(!refferals)
-    {
-      return res.render('signin', { Message: 'Refferal code is not valid' });
+    if (Referral) {
+      const refferals = await User.findOne({ Referral_Code: Referral });
+      if (!refferals) {
+        return res.render('signin', { Message: 'Referral code is not valid' });
+      }
     }
     if (!name || name.trim().length === 0) {
       return res.render('signin', { Message: 'Name should be valid' });
@@ -574,7 +575,6 @@ const processCheckout = async (req, res) => {
                       Amount: paymentAmount,
                       Date: new Date()
                   });
-                  order.paymentStatus = 'Success';
                   await user.save();
               }
           }
@@ -591,7 +591,7 @@ const processCheckout = async (req, res) => {
               status: 'Pending',
           });
           console.log(order)
-
+          order.paymentStatus = 'Success';
           await order.save();
 
           if(paymentMethod === "Razorpay")

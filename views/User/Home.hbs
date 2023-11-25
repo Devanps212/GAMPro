@@ -213,6 +213,12 @@
     opacity: 1;
     transform: translateY(0);
 }
+.cover-slides img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 </style>
 
 
@@ -333,14 +339,14 @@
                     <ul>
                         <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
                         <li class="side-menu">
-							<a href="/cart">
-								<i class="fa fa-shopping-bag"></i>
-								{{#if ifAuthenticated}}
+			<a href="/cart">
+		        <i class="fa fa-shopping-bag"></i>
+	        {{#if ifAuthenticated}}
                       <span class="badge">{{cartNumber}}</span>
                 {{/if}}
-								<p>My Cart</p>
-							</a>
-						</li>
+		<p>My Cart</p>
+			</a>
+		</li>
                     </ul>
                 </div>
                 <!-- End Atribute Navigation -->
@@ -396,7 +402,7 @@
     <ul class="slides-container">
         {{#each banner}}
         <li class="text-center">
-            <img src="/Pictures/images/Banner/{{this.image}}" alt="{{this.title}}">
+            <img src="/Pictures/images/Banner/{{this.image}}" alt="{{this.title}}" width="600" height="200">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">

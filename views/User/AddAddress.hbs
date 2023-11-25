@@ -51,6 +51,7 @@
     align-items: center; /* Vertical centering */
     justify-content: center; /* Vertical centering */
     min-height: 100vh; /* Minimum height to center vertically */
+    overflow-x: auto;
 }
 
 .form-groups {
@@ -155,6 +156,39 @@ textarea {
     opacity: 1;
     transform: translateY(0);
 }
+
+@media (max-width: 768px) {
+    .label
+    {
+        width: 100%;
+        text-align: center;
+    }
+    .submit
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    input {
+        width: 100%;
+        padding: 8px; /* Adjust the padding for input elements */
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea {
+        width: 63%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+        margin-left: 76px;
+    }
+    .cardbody {
+        width: 100%;
+        padding: 10px; /* Adjust the padding as needed */
+    }
+}
 </style>
 
 </head>
@@ -193,19 +227,6 @@ textarea {
                         </ul>
                     </div>
                 </div>
-                {{#if ifAuthenticated}}
-                    <a href="/logout" class="btn btn-primary" style="float:right">SignOut</a>
-                          {{else}}
-                              <div class="login-box">
-                                  <div class="dropdown">
-                                      <button class="dropdown-button">Login or signUp</button>
-                                      <ul class="dropdown-options">
-                                          <li><a href="/login">Login</a></li>
-                                          <li><a href="/signin">Signup</a></li>
-                                      </ul>
-                                  </div>
-                              </div>
-                          {{/if}}
                     <div class="login-box">
                  <a id="logoutButton" class="btn btn-primary" href="/logout">Sign Out</a>
               </div>
@@ -224,7 +245,7 @@ textarea {
             <div class="container">
                 <!-- Start Header Navigation -->
                 <div class="navbar-header">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation" style="width: 41px;">
                     <i class="fa fa-bars"></i>
                 </button>
                     <a class="navbar-brand" href="/"><img src="/Pictures/gampro-high-resolution-color-logo.png" class="logo" style="display:flex; justify-content:center; align-items:center;border-radius: 53px; width:102px;" alt=""></a>
@@ -362,7 +383,9 @@ textarea {
             </div>
            
             
+            <div class="submit">
             <button class="buttons" type="submit">Save Address</button>
+            </div>
         </form>
     </div>
     <!-- Start Footer  -->

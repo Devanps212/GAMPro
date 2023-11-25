@@ -352,6 +352,7 @@ const orderView = async(req, res)=>
   }
 }
 
+
 const UpdateStatus = async (req, res) => {
     console.log("reached update status");
     try {
@@ -536,7 +537,8 @@ const UPG = async(req, res)=>
     {
         console.log("Reached Upcoming games")
         const adminProfile = req.adminProfile;
-        res.render('UPG', {adminProfile})
+        const UPG = await Upg.find({})
+        res.render('UPG', {adminProfile, UPG})
     }
     catch(error)
     {
@@ -665,6 +667,31 @@ const pdfc = async(req,res)=>
     res.status(500).send('Error exporting PDF');
   }
 }
+const deletes = async(req, res)=>
+{
+  try
+  {
+       const ItemId = req.params.ItemId
+       const UPGdel = await Upg.findByIdAndDelete(ItemId)
+       console.log("Item found")
+       if(UPGdel)
+       {
+        console.log("Password correct")
+        return res.status(200).send("deleted")
+       }
+       else
+       {
+        console.log("password incorrect")
+        return res.status(404).send("error")
+       }
+  }
+  catch(error)
+  {
+    console.log("error")
+    return res.status(500).send("internal server error")
+
+  }
+}
 module.exports = {
     UPG,
     add,
@@ -673,6 +700,7 @@ module.exports = {
     search,
     listed,
     SaveUPG,
+    deletes,
     wishlist,
     editSave,
     unlisted,

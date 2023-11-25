@@ -90,12 +90,6 @@
   cursor: pointer;
 }
 
-/* Style for the search icon */
-.attr-nav .search i.fa-search {
-  font-size: 24px;
-  color: #333;
-}
-
 /* Style for the badge */
 .attr-nav .badge {
   background-color: #007BFF;
@@ -301,7 +295,7 @@
     <!-- End Main Top -->
 
     <!-- Start Main Top -->
-    <header class="main-header">
+    <header class="main-header" style="padding: 2px;">
         <!-- Start Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav" style="padding: 0px;">
             <div class="container">
@@ -310,12 +304,12 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                    <a class="navbar-brand" href="/"><img src="/Pictures/gampro-high-resolution-color-logo.png" class="logo" style="display:flex; justify-content:center; align-items:center;border-radius: 53px; width:102px;" alt=""></a>
+                    <a class="navbar-brand" href="/" style="margin-top: -22px;"><img src="/Pictures/gampro-high-resolution-color-logo.png" class="logo" style="display:flex; justify-content:center; align-items:center;border-radius: 53px; width:102px;" alt=""></a>
                 </div>
                 <!-- End Header Navigation -->
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse" id="navbar-menu">
+                <div class="collapse navbar-collapse" id="navbar-menu" style="margin-bottom: 19px;margin-right:3px">
                     <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
                         <li class="nav-item active"><a class="nav-link" href="/">Home</a></li>
                         <li class="nav-item"><a class="nav-link" href="/aboutus">About Us</a></li>
@@ -352,8 +346,9 @@
                 <!-- /.navbar-collapse -->
 
                 <!-- Start Atribute Navigation -->
-                <div class="attr-nav">
+                <div class="attr-nav" style="margin-left: -2px !important;margin-right: -10px !important;margin-top: -8px !important;">
                 <ul>
+                    <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
                     <li class="side-menu">
                         <a href="/cart">
                             <i class="fa fa-shopping-bag"></i>

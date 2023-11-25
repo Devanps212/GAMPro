@@ -14,14 +14,12 @@ app.use(nocache())
 
 //mongodb connection
 
-mongoose.connect(process.env.MONGODB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  }).then(() => {
+mongoose.connect(process.env.MONGODB_URL).then(() => {
     console.log('Connected to MongoDB');
   })
   .catch((error) => {
-    console.error('Error connecting to MongoDB:', error);
+    console.error('Error: Failed to connect to MongoDB at', process.env.MONGODB_URL);
+    console.error('Technical details:', error);
   });
 
 const userroute = require('./routes/user_router')

@@ -98,6 +98,8 @@ admin_route.get('/unlist', productController.listed)
 admin_route.delete('/delete-image/:productId/:Imgindex', productController.deleteImage)
 admin_route.get('/UPGames',adminAuth.islogin, profile, productController.UPG)
 admin_route.post('/upload-game', productController.SaveUPG)
+admin_route.post('/deleteUPG/:ItemId', productController.deletes)
+
 
 //orders
 admin_route.get('/orders',adminAuth.islogin, profile, productController.orderstatus)

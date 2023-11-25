@@ -365,7 +365,7 @@ h1 {
                 </div>
                     <div class="login-box">
                   {{#if ifAuthenticated}}
-                      <a href="/logout" class="btn btn-primary" style="float:right">SignOut</a>
+                      <a href="/logout" class="btn btn-primary">SignOut</a>
                             {{else}}
                                 <div class="login-box">
                                     <div class="dropdown">
@@ -533,7 +533,7 @@ h1 {
       </aside>
       <main class="col-lg-6">
         <div class="ps-lg-3">
-          <h4 class="title text-dark">
+          <h4 class="title text-dark" style="font-family: sans-serif;font-size: x-large;font-weight: 700;">
             {{products.name}}
           </h4>
           <div class="d-flex flex-row my-3">
@@ -556,7 +556,7 @@ h1 {
             <span class="text-muted">/-</span>
           </div>
 
-          <p>
+          <p style="color: #363636;font-family: sans-serif;">
             {{Limit products.description 790}}
           </p>
 
@@ -620,7 +620,7 @@ h1 {
     </form>
     <div class="image-preview-container" id="imagePreview"></div>
   </div>
-
+ {{#if review.length}}
  <div class="containers">
     <h1>Customer Reviews</h1>
     <div class="reviews">
@@ -641,6 +641,9 @@ h1 {
       {{/each}}
     </div>
   </div>
+{{else}}
+   <h2 style="text-align: center;margin: 54px;">No reviews Available</h2>
+{{/if}}
 
 
 

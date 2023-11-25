@@ -3,6 +3,7 @@ const user_route = express()
 const session = require('express-session')
 const auth = require('../middleware/Auth')
 const hbs = require('hbs')
+require('dotenv').config()
 
 const {textLimit, NotEqualto, unlessFirst, check, ifeq, pagination, currentpage, sessionCheck} = require('../HBS_helpers/admin')
 
@@ -23,7 +24,7 @@ const path = require('path')
 
 const MDBsession = require('connect-mongodb-session')(session)
 const store = new MDBsession({
-    uri: "mongodb://127.0.0.1:27017/Database",
+    uri: process.env.MONGODB_URL,
     collection:"session_IDs"
 })
 
