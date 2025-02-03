@@ -23,7 +23,7 @@ mongoose.connect(process.env.MONGODB_URL).then(() => {
     console.error('Technical details:', error);
   });
 
-app.use('/Pictures', express.static(path.join(__dirname, 'public', 'Pictures')))
+app.use(express.static(path.join(__dirname, "public")))
 
 const userroute = require('./routes/user_router')
 const adminrouter = require('./routes/admin_router')
